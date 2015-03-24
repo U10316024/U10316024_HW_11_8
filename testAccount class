@@ -1,0 +1,127 @@
+//Define a class TestAccount
+//Constructor of TestAccount
+class TestAccount{
+
+	//data fields
+	private int id;
+	private double balance;
+	private double annualInterestRate;
+	private Date dateCreated;
+	private String name;	
+
+	int i = 0;
+	
+	//create a list
+	ArrayList<Transaction> list = new ArrayList<Transaction>();
+
+	//no-arg constructor
+	TestAccount(){
+
+		dateCreated = new Date();
+		id = 0;
+		balance = 0;
+		annualInterestRate = 0;
+		name = "";
+	}
+	
+	//constrcutor
+	TestAccount(int id, double balance,String name){
+
+		dateCreated = new Date();
+		this.id = id;
+		this.balance = balance;
+		this.name = name;
+	}
+
+	//get method
+	public Date getDateCreated() {
+
+		return dateCreated;
+
+	}
+
+	//get method
+	public int getId() {
+
+		return id;
+
+	}
+
+	//get method
+	public double getBalance() {
+
+		return balance;
+
+	}
+
+	//get method
+	public double getAnnualInterestRate() {
+
+		return annualInterestRate/100;
+
+	}
+
+	//get method
+	public double getMonthlyInterestRate() {
+
+		return annualInterestRate/1200;
+
+	}
+
+	//get method
+	public double getMonthlyInterest() {
+
+		return balance*getMonthlyInterestRate();
+
+	}
+
+	//set method
+	public void setId(int id) {
+
+		this.id = id;
+	
+	}
+
+	//set method
+	public void setBalance(double balance) {
+
+		this.balance = balance;
+
+	}
+
+	//set method
+	public void setAnnualInterestRate(double annualInterestRate) {
+
+		this.annualInterestRate = annualInterestRate;
+
+	}
+
+	//withdraw method
+	public void withdraw(double money) {		
+
+		balance = balance - money;	
+		list.add(new Transaction('W', money, balance, "end"));
+
+		System.out.println("\nDetail: " + ((Transaction)list.get(i)).getDescription());
+
+		i++;
+	}
+
+	//deposit method
+	public void deposit(double money) {		
+
+		balance = balance + money;	
+		list.add(new Transaction('D', money, balance, "end"));
+
+		System.out.println("\nDetail: " + ((Transaction)list.get(i)).getDescription());
+		
+		i++;
+	}
+	
+	//set method
+	public String toString() {
+
+		return "\nId: " + getId() +  "\nBalance: " + getBalance() + "\nMonthlyInterest: " + getMonthlyInterest() + "\nDate: " + getDateCreated();		
+
+	}
+}
