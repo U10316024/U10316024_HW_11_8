@@ -153,7 +153,7 @@ class TestAccount{
 	//set method
 	public String toString() {
 
-		return "\nId: " + getId() +  "\nBalance: " + getBalance() + "\nMonthlyInterest: " + getMonthlyInterest() + "\nDate: " + getDateCreated();		
+		return "\nName: " + name + "\nId: " + getId() +  "\nBalance: " + getBalance() + "\nMonthlyInterest: " + getMonthlyInterest() + "\nDate: " + getDateCreated();		
 
 	}
 }
